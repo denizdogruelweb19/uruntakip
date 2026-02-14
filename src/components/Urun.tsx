@@ -24,6 +24,6 @@ return(
                 <td><Link to={`./UrunDetay/${index}`}>Detay</Link></td>
             </tr>;
         })}
-    </table><input type="text" value={newProduct} onChange={(e) => setNewProduct(e.target.value)} /><button type="button" onClick={addProduct}>Görev ekle</button></>
+    </table><input type="text" value={newProduct} onChange={(e) => setNewProduct(e.target.value)} /><button type="button" onClick={addProduct}>Ürün ekle</button></>
     )} 
 export default Urun
