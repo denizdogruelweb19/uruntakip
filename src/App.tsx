@@ -8,7 +8,7 @@ const products=["iphone 11","Apple watch","samsung s8"]
     <>
       <div>
         
-        <Urun></Urun>
+        <Urun products={products}></Urun>
         
         </div>
         
