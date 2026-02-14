@@ -1,22 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js"
-function Urun({products}){
+import { Link } from "react-router-dom";
 
-    return(
-       <table className="table table-bordered">
+function Urun({products}){
+const[ProductList,setProductList]=useState(products)
+const[newProduct,setNewProduct]=useState("");
+const addProduct=()=>{
+    setProductList([...ProductList,newProduct]);
+    setNewProduct(" ");
+}
+return(
+    <><table className="table table-bordered">
         <tr>
             <th>id</th>
-            <th>Adi</th>
+            <th>Ad</th>
             <th>Detay</th>
         </tr>
-        {products.map((product,index)=>{
-            return<tr >
-              <td>{index}</td>
-                <td key={index}>{product}</td>
-                <td>Detay</td>
-            </tr>
+        {ProductList.map((product, index) => {
+            return <tr>
+                <td>{index}</td>
+                <td>{product}</td>
+                <td><Link to={`./UrunDetay/${index}`}>Detay</Link></td>
+            </tr>;
         })}
-       </table>
-    )
-}export default Urun
+    </table><input type="text" value={newProduct} onChange={(e) => setNewProduct(e.target.value)} /><button type="button" onClick={addProduct}>Görev ekle</button></>
+    )} 
+export default Urun
